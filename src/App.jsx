@@ -12,11 +12,11 @@ function App() {
     <div>
       <Header></Header>
       <Navbar></Navbar>
-      <Suspense>
+      {/* <Suspense>
         <Routes>
-          <Route path="/" element={<Navigate replace to="/main" />}></Route>
+          <Route path="/main" element={<MainPage />}></Route>
         </Routes>
-      </Suspense>
+      </Suspense> */}
       <Footer></Footer>
     </div>
   );
