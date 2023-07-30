@@ -20,3 +20,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.navbar * {
+  display: inline-block;
+}
+
+.navbar li {
+  margin: 10px;
+}
