@@ -48,6 +48,36 @@ body {
   margin: 5px;
 }
 
+.artwork-display {
+  width: 300px;
+  height: 300px;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* position: absolute; */
+  z-index: 1;
+}
+
+.artwork-information {
+  width: 300px;
+  height: 300px;
+  background-color: palevioletred;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* position: relative; */
+  z-index: 0;
+}
+
+.artwork-display:hover {
+  display: none;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
 .footer {
   position: absolute; /* this will let it stick to the bottom of the webscreen at all times */
   bottom: 0;

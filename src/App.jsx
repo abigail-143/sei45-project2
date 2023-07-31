@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import MainPage from "./pages/MainPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Artwork from "./components/Artwork";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/main" element={<MainPage />}></Route>
         </Routes>
       </Suspense> */}
+      <Artwork></Artwork>
       <Footer></Footer>
     </div>
   );
