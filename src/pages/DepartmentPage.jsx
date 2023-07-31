@@ -5,7 +5,7 @@ const DepartmentPage = (props) => {
     return (
         <div>
             <h1>{props.departmentName}</h1>
-            {/* <Artwork></Artwork> */}
+            <Artwork></Artwork>
         </div>
     );
 };
