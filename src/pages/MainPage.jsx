@@ -57,11 +57,11 @@ const MainPage = () => {
   return (
     <div className="department-page">
       <h1>Main Page</h1>
-      <div className="department-art-display">
+      {/* <div className="department-art-display">
         <Artwork></Artwork>
-      </div>
+      </div> */}
       {/* <div>{JSON.stringify(testpage)}</div> */}
-      <div>{JSON.stringify(testObjectData)}</div>
+      {/* <div>{JSON.stringify(testObjectData)}</div> */}
     </div>
   );
 };

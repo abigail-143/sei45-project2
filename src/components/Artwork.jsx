@@ -1,22 +1,38 @@
 import React, { useEffect, useState } from "react";
 
+const Overlay = () => {
+  return (
+    <div className="overlay-background">
+      <div className="overlay-details">
+        <h1>hello, world</h1>
+      </div>
+    </div>
+  );
+};
+
 const Artwork = () => {
   const [display, setDisplay] = useState([]);
 
   const getDisplayObject = async () => {
-    const res = await fetch(import.meta.env.VITE_SERVER + "/objects/" + "45734"); // the objectID should pass down as props, so can filter out the ones with isPublicDomain = true
-    const data = await res.json()
-    setDisplay(data)
+    const res = await fetch(
+      import.meta.env.VITE_SERVER + "/objects/" + "45734"
+    ); // the objectID should pass down as props, so can filter out the ones with isPublicDomain = true
+    const data = await res.json();
+    setDisplay(data);
   };
 
   useEffect(() => {
-    getDisplayObject()
-  }, [])
+    getDisplayObject();
+  }, []);
 
   return (
     <div className="artwork">
       <div className="artwork-display">
-        <img className="artwork-display-img" src={display.primaryImageSmall} alt="museum-photo"></img>
+        <img
+          className="artwork-display-img"
+          src={display.primaryImageSmall}
+          alt="museum-photo"
+        ></img>
         <p>{display.title}</p>
         <p>{display.artistDisplayName}</p>
       </div>
