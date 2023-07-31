@@ -2,24 +2,45 @@ import React, { useEffect, useState } from "react";
 import Artwork from "../components/Artwork";
 
 const MainPage = () => {
-  // this works to get the array of unique objectIds from a specific department
-  //   const [testpage, setTestPage] = useState([]);
+  // this works to get the array of TOTAL unique objectIds from a specific department
+  const [testpage, setTestPage] = useState([]);
 
-  //   const getObjects = async () => {
-  //     const res = await fetch(
-  //       import.meta.env.VITE_SERVER + "/objects?departmentIds=1"
-  //     );
-  //     const data = await res.json();
-  //     const array = data.objectIDs;
-  //     setTestPage(array);
-  //   };
+  const getObjects = async () => {
+    const sliced = [];
+    const chunkSize = 10;
+    const res = await fetch(
+      import.meta.env.VITE_SERVER + "/objects?departmentIds=1"
+    );
+    const data = await res.json();
+    const array = data.objectIDs;
+    setTestPage(array);
+    console.log(testpage);
+  };
 
-  //   useEffect(() => {
-  //     getObjects();
-  //   }, []);
+  useEffect(() => {
+    getObjects();
+  }, []);
+   //------------------------------------------//
+
+//   const getTestObjects = () => {
+//     const testLong = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+//     const slicedLong = []
+//     const testChunkSize = 10
+//     for (let i = 0; i < testLong.length; i + testChunkSize) {
+//         let testChunk = testLong.slice(i, i + testChunkSize)
+//         slicedLong.push(testChunk)
+//     }
+//     console.log(slicedLong)
+//     setTestPage(slicedLong)
+//   }
+
+//   useEffect(() => {
+//     getTestObjects()
+//   }, [])
+
   //------------------------------------------//
 
-  const testArray = [180, 183, 184, 185, 10];
+  //   const testArray = [180, 183, 184, 185, 10];
 
   //   const [testObjectData, setTestObjectData] = useState([]);
 
@@ -31,28 +52,28 @@ const MainPage = () => {
   //     setTestObjectData(data);
   //   };
 
-  const [testObjectData, setTestObjectData] = useState([]);
-  for (let i = 0; i < testArray.length; i++) {
-    const getObjectDetails = async () => {
-      let image = "";
-      const res = await fetch(
-        import.meta.env.VITE_SERVER + "/objects/" + testArray[i]
-      );
-      const data = await res.json();
-      if (data.isPublicDomain) {
-        console.log(i);
-        image = data.primaryImage;
-        console.log(image);
-        console.log(data.objectID);
-        return image;
-      }
-      setTestObjectData(image);
-    };
+  //   const [testObjectData, setTestObjectData] = useState([]);
+  //   for (let i = 0; i < testArray.length; i++) {
+  //     const getObjectDetails = async () => {
+  //       let image = "";
+  //       const res = await fetch(
+  //         import.meta.env.VITE_SERVER + "/objects/" + testArray[i]
+  //       );
+  //       const data = await res.json();
+  //       if (data.isPublicDomain) {
+  //         console.log(i);
+  //         image = data.primaryImage;
+  //         console.log(image);
+  //         console.log(data.objectID);
+  //         return image;
+  //       }
+  //       setTestObjectData(image);
+  //     };
 
-    useEffect(() => {
-      getObjectDetails();
-    }, []);
-  }
+  //     useEffect(() => {
+  //       getObjectDetails();
+  //     }, []);
+  //   }
 
   return (
     <div className="department-page">
@@ -67,7 +88,6 @@ const MainPage = () => {
 };
 
 export default MainPage;
-
 
 // CUT THE LARGE ARRAY INTO SMALL ARRAYS return it as an object or arrays?
 // on click take the next chunk and prepare the Artwork component?
