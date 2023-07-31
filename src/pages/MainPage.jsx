@@ -19,7 +19,7 @@ const MainPage = () => {
   //   }, []);
   //------------------------------------------//
 
-    const testArray = [180, 183, 184, 185, 10];
+  const testArray = [180, 183, 184, 185, 10];
 
   //   const [testObjectData, setTestObjectData] = useState([]);
 
@@ -31,21 +31,28 @@ const MainPage = () => {
   //     setTestObjectData(data);
   //   };
 
-    for (let i = 0; i < testArray.length; i++) {
-    const [testObjectData, setTestObjectData] = useState([]);
-
-    const getObjectDetails = async (objectId) => {
+  const [testObjectData, setTestObjectData] = useState([]);
+  for (let i = 0; i < testArray.length; i++) {
+    const getObjectDetails = async () => {
+      let image = "";
       const res = await fetch(
-        import.meta.env.VITE_SERVER + "/objects/" + objectId
+        import.meta.env.VITE_SERVER + "/objects/" + testArray[i]
       );
       const data = await res.json();
-      setTestObjectData(data);
-    };
-      const data = getObjectDetails(testArray[i]);
       if (data.isPublicDomain) {
-        return data.primaryImage;
+        console.log(i);
+        image = data.primaryImage;
+        console.log(image);
+        console.log(data.objectID);
+        return image;
       }
-    }
+      setTestObjectData(image);
+    };
+
+    useEffect(() => {
+      getObjectDetails();
+    }, []);
+  }
 
   return (
     <div className="department-page">
@@ -54,9 +61,13 @@ const MainPage = () => {
         <Artwork></Artwork>
       </div>
       {/* <div>{JSON.stringify(testpage)}</div> */}
-      {/* <div>{JSON.stringify(testObjectData)}</div> */}
+      <div>{JSON.stringify(testObjectData)}</div>
     </div>
   );
 };
 
 export default MainPage;
+
+
+// CUT THE LARGE ARRAY INTO SMALL ARRAYS return it as an object or arrays?
+// on click take the next chunk and prepare the Artwork component?

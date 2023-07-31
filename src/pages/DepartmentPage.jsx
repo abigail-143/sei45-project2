@@ -24,3 +24,6 @@ export default DepartmentPage;
 // }"
 
 // get the objectIds from each department first then pull the objectId and display the Artwork
+
+// CUT THE LARGE ARRAY INTO SMALL ARRAYS return it as an object or arrays?
+// on click take the next chunk and prepare the Artwork component?

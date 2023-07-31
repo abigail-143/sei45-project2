@@ -34,6 +34,8 @@ const Artwork = () => {
 
 export default Artwork;
 
+// build the overlay here
+
 // "returns a bunch of information (below is just a subset that I think I will use.
 
 //     ""objectID"" = unique INTEGAR identifying number of each artwork,
