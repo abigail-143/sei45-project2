@@ -6,7 +6,7 @@ const DepartmentPage = (props) => {
     <div className="department-page">
       <h1>{props.departmentName}</h1>
       <div className="department-art-display">
-        <Artwork></Artwork>
+        <Artwork objectID="45734"></Artwork>
       </div>
     </div>
   );

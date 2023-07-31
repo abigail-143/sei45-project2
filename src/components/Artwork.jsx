@@ -11,7 +11,9 @@ const Overlay = (props) => {
           <h1>Artwork: {props.title}</h1>
           <h2>Artist Name: {props.artistDisplayName}</h2>
           <h3>Artist Bio: {props.artistDisplayBio}</h3>
-          <p>{props.objectDate}</p>
+          <p>
+            {props.culture}, {props.objectDate}
+          </p>
           <p>{props.classification}</p>
           <p>{props.medium}</p>
           <button
@@ -27,23 +29,23 @@ const Overlay = (props) => {
   );
 };
 
-const Artwork = () => {
+const Artwork = (props) => {
   // this state will take the data from each objectId api to populate artwork
   const [display, setDisplay] = useState([]);
   // this will toggle the overlay which will present more information
   const [show, setShow] = useState(false);
 
   // this function will grab the objectId API and return the relevant details
-  const getDisplayObject = async () => {
+  const getDisplayObject = async (objectID) => {
     const res = await fetch(
-      import.meta.env.VITE_SERVER + "/objects/" + "45734"
+      import.meta.env.VITE_SERVER + "/objects/" + objectID
     ); // the objectID should pass down as props, so can filter out the ones with isPublicDomain = true
     const data = await res.json();
     setDisplay(data);
   };
 
   useEffect(() => {
-    getDisplayObject();
+    getDisplayObject(props.objectID);
   }, []);
 
   return (
