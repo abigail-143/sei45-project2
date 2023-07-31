@@ -1,33 +1,33 @@
 import React, { useEffect, useState } from "react";
 
 const Artwork = () => {
-  const [test, setTest] = useState([]);
+  const [display, setDisplay] = useState([]);
 
-  const getTestObject = async () => {
+  const getDisplayObject = async () => {
     const res = await fetch(import.meta.env.VITE_SERVER + "/objects/" + "45734"); // the objectID should pass down as props, so can filter out the ones with isPublicDomain = true
     const data = await res.json()
-    setTest(data)
+    setDisplay(data)
   };
 
   useEffect(() => {
-    getTestObject()
+    getDisplayObject()
   }, [])
 
   return (
     <div className="artwork">
       <div className="artwork-display">
-        <img className="artwork-display-img" src={test.primaryImageSmall} alt="museum-photo"></img>
-        <p>{test.title}</p>
-        <p>{test.artistDisplayName}</p>
+        <img className="artwork-display-img" src={display.primaryImageSmall} alt="museum-photo"></img>
+        <p>{display.title}</p>
+        <p>{display.artistDisplayName}</p>
       </div>
       <div className="artwork-information">
-        <p>{test.title}</p>
-        <p>{test.artistDisplayName}</p>
-        <p>{test.artistDisplayBio}</p>
-        <p>{test.culture}</p>
-        <p>{test.period}</p>
+        <p>{display.title}</p>
+        <p>{display.artistDisplayName}</p>
+        <p>{display.artistDisplayBio}</p>
+        <p>{display.culture}</p>
+        <p>{display.period}</p>
       </div>
-      <p>{JSON.stringify(test)}</p>
+      {/* <p>{JSON.stringify(display)}</p> */}
     </div>
   );
 };
@@ -54,20 +54,3 @@ export default Artwork;
 //     ""rightsAndReproduction"" = STRING, credit line for artworks still under copyright
 
 //     for full list, see https://metmuseum.github.io/#object"
-
-{
-  /* <div className="artwork">
-      <div className="artwork-display">
-        <img src="https://picsum.photos/200" alt="museum-photo"></img>
-        <p>Artwork Name</p>
-        <p>Artist Name</p>
-      </div>
-      <div className="artwork-information">
-        <p>Artwork Name</p>
-        <p>Artist Name</p>
-        <p>Artist Bio</p>
-        <p>Culture</p>
-        <p>Creation Date</p>
-      </div>
-    </div> */
-}

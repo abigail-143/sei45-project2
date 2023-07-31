@@ -7,18 +7,20 @@ import MainPage from "./pages/MainPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Artwork from "./components/Artwork";
+import AmericanDecorativeArts from "./pages/AmericanDecorativeArts";
 
 function App() {
   return (
     <div>
       <Header></Header>
       <Navbar></Navbar>
-      {/* <Suspense>
-        <Routes>
-          <Route path="/main" element={<MainPage />}></Route>
-        </Routes>
-      </Suspense> */}
-      <Artwork></Artwork>
+
+      <Routes>
+        <Route path="/main" element={<MainPage />}></Route>
+        <Route path="/department-1" element={<AmericanDecorativeArts />}></Route>
+      </Routes>
+
+      {/* <Artwork></Artwork> */}
       <Footer></Footer>
     </div>
   );
