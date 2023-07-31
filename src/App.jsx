@@ -7,6 +7,7 @@ import MainPage from "./pages/MainPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import DepartmentPage from "./pages/DepartmentPage";
+import Artwork from "./components/Artwork";
 
 function App() {
 

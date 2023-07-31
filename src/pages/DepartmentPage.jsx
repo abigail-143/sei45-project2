@@ -1,13 +1,15 @@
-import React from 'react';
-import Artwork from '../components/Artwork';
+import React from "react";
+import Artwork from "../components/Artwork";
 
 const DepartmentPage = (props) => {
-    return (
-        <div>
-            <h1>{props.departmentName}</h1>
-            <Artwork></Artwork>
-        </div>
-    );
+  return (
+    <div className="department-page">
+      <h1>{props.departmentName}</h1>
+      <div className="department-art-display">
+        <Artwork></Artwork>
+      </div>
+    </div>
+  );
 };
 
 export default DepartmentPage;
@@ -17,7 +19,7 @@ export default DepartmentPage;
 // "/objects/departmentId" will give an object/dictionary of the objectId in the department
 
 // {
-// ""total"": interger, 
+// ""total"": interger,
 // ""objectIDs"": [int, int, int…]
 // }"
 
