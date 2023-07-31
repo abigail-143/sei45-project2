@@ -4,14 +4,24 @@ const Overlay = (props) => {
   return (
     <div className="overlay-background">
       <div className="overlay-details">
-        <h1>hello, world</h1>
-        <button
-          onClick={() => {
-            props.setShow(false);
-          }}
-        >
-          back
-        </button>
+        <div className="img-column">
+          <img className="overlay-img" src={props.img}></img>
+        </div>
+        <div className="detail-column">
+          <h1>Artwork: {props.title}</h1>
+          <h2>Artist Name: {props.artistDisplayName}</h2>
+          <h3>Artist Bio: {props.artistDisplayBio}</h3>
+          <p>{props.objectDate}</p>
+          <p>{props.classification}</p>
+          <p>{props.medium}</p>
+          <button
+            onClick={() => {
+              props.setShow(false);
+            }}
+          >
+            back
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -38,7 +48,19 @@ const Artwork = () => {
 
   return (
     <>
-      {show && <Overlay setShow={setShow}></Overlay>}
+      {show && (
+        <Overlay
+          setShow={setShow}
+          title={display.title}
+          artistDisplayName={display.artistDisplayName}
+          artistDisplayBio={display.artistDisplayBio}
+          culture={display.culture}
+          img={display.primaryImage}
+          objectDate={display.objectDate}
+          classification={display.classification}
+          medium={display.medium}
+        ></Overlay>
+      )}
       <div className="artwork">
         <div className="artwork-display">
           <img

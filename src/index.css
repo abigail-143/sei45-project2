@@ -101,11 +101,27 @@ body {
 .overlay-details {
   position: fixed;
   width: 60%;
-  height: 60%;
-  top: 20%;
+  height: 70%;
+  top: 15%;
   left: 20%;
   z-index: 100;
   background-color: lightslategray;
+  display: flex;
+}
+
+.img-column {
+  width: 50%;
+}
+
+.detail-column {
+  width: 50%;
+  padding: 10px;
+}
+
+.overlay-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .department-page {
