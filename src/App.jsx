@@ -9,10 +9,6 @@ import Footer from "./components/Footer";
 import DepartmentPage from "./pages/DepartmentPage";
 
 function App() {
-  const test = "/department-1";
-  const testName = "American Decorative Arts";
-  const test2 = "/department-3";
-  const testName2 = "Ancient Near Eastern Art";
 
   const [departmentPage, setDepartmentPage] = useState([]);
 
@@ -27,6 +23,7 @@ function App() {
     getDepartmentPage();
   }, []);
 
+  // prepare the links in the navbar
   const navlinks = departmentPage.map((item) => {
     const link = "/department-" + item.departmentId;
     return (
@@ -38,12 +35,13 @@ function App() {
     );
   });
 
+  // prepare each department page
   const pages = departmentPage.map((item) => {
-    const path = "/department-" + item.departmentID;
+    const path = "/department-" + item.departmentId;
     return (
       <Route
         path={path}
-        element={<DepartmentPage departmentName="hi" />}
+        element={<DepartmentPage departmentId={item.departmentId} departmentName={item.displayName} />}
       ></Route>
     );
   });
@@ -55,8 +53,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
-        {/* <Route path={test} element={<DepartmentPage departmentName={testName}/>}></Route>
-        <Route path={test2} element={<DepartmentPage departmentName={testName2}/>}></Route> */}
+        <Route path="/main" element={<MainPage />}></Route>
         {pages}
       </Routes>
       {/* <Artwork></Artwork> */}
