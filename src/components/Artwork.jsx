@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from "react";
 
-const Overlay = () => {
+const Overlay = (props) => {
   return (
     <div className="overlay-background">
       <div className="overlay-details">
         <h1>hello, world</h1>
+        <button
+          onClick={() => {
+            props.setShow(false);
+          }}
+        >
+          back
+        </button>
       </div>
     </div>
   );
 };
 
 const Artwork = () => {
+  // this state will take the data from each objectId api to populate artwork
   const [display, setDisplay] = useState([]);
+  // this will toggle the overlay which will present more information
+  const [show, setShow] = useState(false);
 
+  // this function will grab the objectId API and return the relevant details
   const getDisplayObject = async () => {
     const res = await fetch(
       import.meta.env.VITE_SERVER + "/objects/" + "45734"
@@ -26,25 +37,33 @@ const Artwork = () => {
   }, []);
 
   return (
-    <div className="artwork">
-      <div className="artwork-display">
-        <img
-          className="artwork-display-img"
-          src={display.primaryImageSmall}
-          alt="museum-photo"
-        ></img>
-        <p>{display.title}</p>
-        <p>{display.artistDisplayName}</p>
+    <>
+      {show && <Overlay setShow={setShow}></Overlay>}
+      <div className="artwork">
+        <div className="artwork-display">
+          <img
+            className="artwork-display-img"
+            src={display.primaryImageSmall}
+            alt="museum-photo"
+          ></img>
+          <p>{display.title}</p>
+          <p>{display.artistDisplayName}</p>
+        </div>
+        <div
+          className="artwork-information"
+          onClick={() => {
+            setShow(true);
+          }}
+        >
+          <p>{display.title}</p>
+          <p>{display.artistDisplayName}</p>
+          <p>{display.artistDisplayBio}</p>
+          <p>{display.culture}</p>
+          <p>{display.period}</p>
+        </div>
+        {/* <p>{JSON.stringify(display)}</p> */}
       </div>
-      <div className="artwork-information">
-        <p>{display.title}</p>
-        <p>{display.artistDisplayName}</p>
-        <p>{display.artistDisplayBio}</p>
-        <p>{display.culture}</p>
-        <p>{display.period}</p>
-      </div>
-      {/* <p>{JSON.stringify(display)}</p> */}
-    </div>
+    </>
   );
 };
 
