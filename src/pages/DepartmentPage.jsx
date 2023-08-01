@@ -12,7 +12,7 @@ const DepartmentPage = (props) => {
         props.departmentId
     );
     const data = await res.json();
-    const objectIDArray = data.objectIDs.slice(100, 130);
+    const objectIDArray = data.objectIDs.slice(1000, 1030);
     const validData = await getObjectInfo(objectIDArray);
     const filteredValidData = validData.filter((item) => {
       return item != null;
@@ -70,3 +70,5 @@ export default DepartmentPage;
 
 // CUT THE LARGE ARRAY INTO SMALL ARRAYS return it as an object or arrays?
 // on click take the next chunk and prepare the Artwork component?
+
+// create another state here to trigger a re-render??? so that the images will load

@@ -9,7 +9,6 @@ import Footer from "./components/Footer";
 import DepartmentPage from "./pages/DepartmentPage";
 
 function App() {
-
   const [departmentPage, setDepartmentPage] = useState([]);
 
   const getDepartmentPage = async () => {
@@ -41,10 +40,52 @@ function App() {
     return (
       <Route
         path={path}
-        element={<DepartmentPage departmentId={item.departmentId} departmentName={item.displayName} departmentPage={departmentPage} />}
+        element={
+          <DepartmentPage
+            departmentId={item.departmentId}
+            departmentName={item.displayName}
+            departmentPage={departmentPage}
+          />
+        }
       ></Route>
     );
   });
+
+  // const [page, setPage] = useState([]);
+
+  // // this will get a filtered array of objectIds that have isPublicDomain = true
+  // const getObjects = async () => {
+  //   const res = await fetch(
+  //     import.meta.env.VITE_SERVER +
+  //       "/objects?departmentIds=" +
+  //       props.departmentId
+  //   );
+  //   const data = await res.json();
+  //   const objectIDArray = data.objectIDs.slice(1000, 1030);
+  //   const validData = await getObjectInfo(objectIDArray);
+  //   const filteredValidData = validData.filter((item) => {
+  //     return item != null;
+  //   });
+  //   setPage(filteredValidData);
+  // };
+
+  // // this will check the data in each objectId to check if their isPublicDomain = true, to be used in getObjects()
+  // const getObjectInfo = async (array) => {
+  //   const returnValue = array.map(async (item) => {
+  //     const res = await fetch(import.meta.env.VITE_SERVER + "/objects/" + item);
+  //     const data = await res.json();
+  //     if (data.isPublicDomain) {
+  //       return data.objectID;
+  //     }
+  //   });
+  //   const payload = await Promise.all(returnValue);
+  //   return payload;
+  // };
+
+  // useEffect(() => {
+  //   getObjects();
+  //   // console.log(props.departmentName);
+  // }, [page]);
 
   return (
     <div>

@@ -8,10 +8,10 @@ const MainPage = () => {
 
   const getObjects = async () => {
     const res = await fetch(
-      import.meta.env.VITE_SERVER + "/objects?departmentIds=1"
+      import.meta.env.VITE_SERVER + "/objects?departmentIds=21"
     );
     const data = await res.json();
-    const array = data.objectIDs.slice(100, 120);
+    const array = data.objectIDs.slice(3000, 3200);
     console.log(`array: ${array}`);
     console.log(array);
 
