@@ -3,10 +3,10 @@ import React from "react";
 const Header = () => {
   return (
     <div className="header">
-      <h1>Header</h1>
+      <h1>The MET Museum: A Digital Gallery</h1>
       <img
         className="logo"
-        src="https://picsum.photos/200"
+        src="../public/METlogo.png"
         alt="logo"
       />
     </div>
