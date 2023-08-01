@@ -35,18 +35,18 @@ const Artwork = (props) => {
   // this will toggle the overlay which will present more information
   const [show, setShow] = useState(false);
 
-//   this function will grab the objectId API and return the relevant details
-  const getDisplayObject = async (objectID) => {
-    const res = await fetch(
-      import.meta.env.VITE_SERVER + "/objects/" + objectID
-    ); // the objectID should pass down as props, so can filter out the ones with isPublicDomain = true
-    const data = await res.json();
-    setDisplay(data);
-  };
+// //   this function will grab the objectId API and return the relevant details
+//   const getDisplayObject = async (objectID) => {
+//     const res = await fetch(
+//       import.meta.env.VITE_SERVER + "/objects/" + objectID
+//     ); // the objectID should pass down as props, so can filter out the ones with isPublicDomain = true
+//     const data = await res.json();
+//     setDisplay(data);
+//   };
 
-  useEffect(() => {
-    getDisplayObject(props.objectID);
-  }, []);
+//   useEffect(() => {
+//     getDisplayObject(props.objectID);
+//   }, []);
 
   return (
     <>
