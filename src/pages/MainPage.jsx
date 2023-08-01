@@ -5,38 +5,39 @@ const MainPage = () => {
   // this works to get the array of TOTAL unique objectIds from a specific department
   const [testpage, setTestPage] = useState([]);
 
-  const getObjects = async () => {
-    const sliced = [];
-    const chunkSize = 10;
-    const res = await fetch(
-      import.meta.env.VITE_SERVER + "/objects?departmentIds=1"
-    );
-    const data = await res.json();
-    const array = data.objectIDs;
-    setTestPage(array);
-    console.log(testpage);
-  };
+  //   const getObjects = async () => {
+  //     const sliced = [];
+  //     const chunkSize = 10;
+  //     const res = await fetch(
+  //       import.meta.env.VITE_SERVER + "/objects?departmentIds=1"
+  //     );
+  //     const data = await res.json();
+  //     const array = data.objectIDs;
+  //     setTestPage(array);
+  //     console.log(testpage);
+  //   };
 
-  useEffect(() => {
-    getObjects();
-  }, []);
-   //------------------------------------------//
+  //   useEffect(() => {
+  //     getObjects();
+  //   }, []);
+  //------------------------------------------//
+
+//   const testLong = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//   const slicedLong = [];
 
 //   const getTestObjects = () => {
-//     const testLong = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-//     const slicedLong = []
-//     const testChunkSize = 10
+//     const testChunkSize = 10;
 //     for (let i = 0; i < testLong.length; i + testChunkSize) {
-//         let testChunk = testLong.slice(i, i + testChunkSize)
-//         slicedLong.push(testChunk)
+//       let testChunk = testLong.slice(i, i + testChunkSize);
+//       slicedLong.push(testChunk);
 //     }
-//     console.log(slicedLong)
-//     setTestPage(slicedLong)
-//   }
+//     console.log(slicedLong);
+//     setTestPage(slicedLong);
+//   };
 
 //   useEffect(() => {
-//     getTestObjects()
-//   }, [])
+//     getTestObjects();
+//   }, []);
 
   //------------------------------------------//
 

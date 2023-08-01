@@ -29,7 +29,7 @@ function App() {
     const link = "/department-" + item.departmentId;
     return (
       <li key={item.departmentId}>
-        <NavLink exact to={link}>
+        <NavLink key={item.departmentId} exact to={link}>
           {item.displayName}
         </NavLink>
       </li>
