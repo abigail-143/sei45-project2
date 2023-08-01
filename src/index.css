@@ -30,6 +30,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: left;
+  z-index: 3;
 }
 
 .header > h1 {

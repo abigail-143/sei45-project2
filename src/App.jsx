@@ -7,7 +7,6 @@ import MainPage from "./pages/MainPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import DepartmentPage from "./pages/DepartmentPage";
-import Artwork from "./components/Artwork";
 
 function App() {
 
@@ -42,7 +41,7 @@ function App() {
     return (
       <Route
         path={path}
-        element={<DepartmentPage departmentId={item.departmentId} departmentName={item.displayName} />}
+        element={<DepartmentPage departmentId={item.departmentId} departmentName={item.displayName} departmentPage={departmentPage} />}
       ></Route>
     );
   });

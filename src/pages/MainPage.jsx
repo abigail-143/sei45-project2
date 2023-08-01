@@ -11,7 +11,7 @@ const MainPage = () => {
       import.meta.env.VITE_SERVER + "/objects?departmentIds=1"
     );
     const data = await res.json();
-    const array = data.objectIDs.slice(100, 200);
+    const array = data.objectIDs.slice(100, 120);
     console.log(`array: ${array}`);
     console.log(array);
 
@@ -33,7 +33,7 @@ const MainPage = () => {
     });
 
     setTestPage(filtered);
-    // console.log(`testpage: ${testpage}`);
+    console.log(`testpage: ${testpage}`);
     // console.log(testpage);
   };
 
@@ -63,6 +63,10 @@ const MainPage = () => {
   useEffect(() => {
     getObjects();
   }, []);
+
+  const artworkList = testpage.map((item) => {
+    return <Artwork objectID={item}></Artwork>
+  })
 
   //------------------------------------------//
 
@@ -135,6 +139,7 @@ const MainPage = () => {
       <div>{JSON.stringify(testpage)}</div>
       {/* <div>{JSON.stringify(testObjectData)}</div> */}
       {/* {testData} */}
+      <div>{artworkList}</div>
     </div>
   );
 };
