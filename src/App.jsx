@@ -28,8 +28,8 @@ function App() {
   const navlinks = departmentPage.map((item) => {
     const link = "/department-" + item.departmentId;
     return (
-      <li key={item.departmentId}>
-        <NavLink key={item.departmentId} exact to={link}>
+      <li className="navbar-link" key={item.departmentId}>
+        <NavLink className="navlink" key={item.departmentId} exact to={link}>
           {item.displayName}
         </NavLink>
       </li>
