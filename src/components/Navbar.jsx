@@ -8,7 +8,7 @@ const Navbar = (props) => {
       <nav className="navbar">
         <ul>
           <li className="navbar-link">
-            <NavLink className="navlink" exact to="/main">
+            <NavLink className="navlink" exact="true" to="/main">
               Main Page
             </NavLink>
           </li>

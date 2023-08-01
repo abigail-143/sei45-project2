@@ -1,43 +1,93 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Artwork from "../components/Artwork";
 
 const MainPage = () => {
   // this works to get the array of TOTAL unique objectIds from a specific department
   const [testpage, setTestPage] = useState([]);
+  const validArrayRef = useRef([]);
 
-  //   const getObjects = async () => {
-  //     const sliced = [];
-  //     const chunkSize = 10;
-  //     const res = await fetch(
-  //       import.meta.env.VITE_SERVER + "/objects?departmentIds=1"
-  //     );
-  //     const data = await res.json();
-  //     const array = data.objectIDs;
-  //     setTestPage(array);
-  //     console.log(testpage);
+  const getObjects = async () => {
+    const res = await fetch(
+      import.meta.env.VITE_SERVER + "/objects?departmentIds=1"
+    );
+    const data = await res.json();
+    const array = data.objectIDs.slice(100, 200);
+    console.log(`array: ${array}`);
+    console.log(array);
+
+    // const validArray = [];
+    //   array.forEach(async (array) => {
+    //     const res = await fetch(
+    //       import.meta.env.VITE_SERVER + "/objects/" + item
+    //     );
+    //     const data = await res.json();
+    //     if (data.isPublicDomain) {
+    //       // validArray.push(data.objectID);
+    //       validArrayRef.current.push(data.objectID);
+    //     }
+    //   })
+
+    const validArray = await getUrls(array);
+    const filtered = validArray.filter((item) => {
+      return item != null;
+    });
+
+    setTestPage(filtered);
+    // console.log(`testpage: ${testpage}`);
+    // console.log(testpage);
+  };
+
+  const getUrls = async (array) => {
+    // const newReturnValue = [];
+    const returnValue = array.map(async (item) => {
+      const res = await fetch(import.meta.env.VITE_SERVER + "/objects/" + item);
+      const data = await res.json();
+      if (data.isPublicDomain) {
+        // validArray.push(data.objectID);
+        return data.objectID;
+      }
+    });
+    // returnValue.filter((element) => {
+    //   return element != null;
+    // });
+
+    // const payload = await Promise.all(returnValue);
+    // console.log(payload);
+
+    const payload = await Promise.all(returnValue);
+    console.log(payload);
+
+    return payload;
+  };
+
+  useEffect(() => {
+    getObjects();
+  }, []);
+
+  //------------------------------------------//
+
+  // const [testData, setTestData] = useState([])
+
+  // useEffect(() => {
+  //   setTestData([180, 181, 182, 183, 184, 185])
+  // }, [])
+
+  //   const testLong = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  //   const slicedLong = [];
+
+  //   const getTestObjects = () => {
+  //     const testChunkSize = 10;
+  //     for (let i = 0; i < testLong.length; i + testChunkSize) {
+  //       let testChunk = testLong.slice(i, i + testChunkSize);
+  //       slicedLong.push(testChunk);
+  //     }
+  //     console.log(slicedLong);
+  //     setTestPage(slicedLong);
   //   };
 
   //   useEffect(() => {
-  //     getObjects();
+  //     getTestObjects();
   //   }, []);
-  //------------------------------------------//
-
-//   const testLong = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-//   const slicedLong = [];
-
-//   const getTestObjects = () => {
-//     const testChunkSize = 10;
-//     for (let i = 0; i < testLong.length; i + testChunkSize) {
-//       let testChunk = testLong.slice(i, i + testChunkSize);
-//       slicedLong.push(testChunk);
-//     }
-//     console.log(slicedLong);
-//     setTestPage(slicedLong);
-//   };
-
-//   useEffect(() => {
-//     getTestObjects();
-//   }, []);
 
   //------------------------------------------//
 
@@ -82,8 +132,9 @@ const MainPage = () => {
       {/* <div className="department-art-display">
         <Artwork></Artwork>
       </div> */}
-      {/* <div>{JSON.stringify(testpage)}</div> */}
+      <div>{JSON.stringify(testpage)}</div>
       {/* <div>{JSON.stringify(testObjectData)}</div> */}
+      {/* {testData} */}
     </div>
   );
 };
