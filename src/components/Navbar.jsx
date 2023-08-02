@@ -8,7 +8,7 @@ const Navbar = (props) => {
       <nav className="navbar">
         <ul className="navbar-ul">
           <li className="navbar-link">
-            <NavLink className="navlink" exact="true" to="/main">
+            <NavLink onClick={() =>{props.setPageChange("")}} className="navlink" exact="true" to="/main">
               Main Page
             </NavLink>
           </li>

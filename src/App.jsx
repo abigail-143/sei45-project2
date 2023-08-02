@@ -10,7 +10,7 @@ import DepartmentPage from "./pages/DepartmentPage";
 
 function App() {
   const [departmentPage, setDepartmentPage] = useState([]);
-  const [pageChange, setPageChange] = useState('')
+  const [pageChange, setPageChange] = useState("");
 
   const getDepartmentPage = async () => {
     const res = await fetch(import.meta.env.VITE_SERVER + "/departments");
@@ -28,7 +28,15 @@ function App() {
     const link = "/department-" + item.departmentId;
     return (
       <li className="navbar-link" key={item.departmentId}>
-        <NavLink className="navlink" key={item.departmentId} onClick={() => {setPageChange(item.displayName)}} exact to={link}>
+        <NavLink
+          className="navlink"
+          key={item.departmentId}
+          onClick={() => {
+            setPageChange(item.displayName);
+          }}
+          exact
+          to={link}
+        >
           {item.displayName}
         </NavLink>
       </li>
@@ -92,14 +100,12 @@ function App() {
   return (
     <div>
       <Header pageChange={pageChange}></Header>
-      <Navbar links={navlinks}></Navbar>
-
+      <Navbar links={navlinks} setPageChange={setPageChange}></Navbar>
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
         <Route path="/main" element={<MainPage />}></Route>
         {pages}
       </Routes>
-      {/* <Artwork></Artwork> */}
       <Footer></Footer>
     </div>
   );
