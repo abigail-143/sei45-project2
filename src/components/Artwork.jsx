@@ -33,7 +33,7 @@ const Overlay = (props) => {
             {props.medium}
           </p>
           <button
-            className="detail-column-button"
+            className="detail-column-button btn"
             onClick={() => {
               props.setShow(false);
             }}

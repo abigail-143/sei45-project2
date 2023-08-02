@@ -226,6 +226,9 @@ body {
   position: absolute;
   top: 15px;
   right: 15px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
 }
 
 .detail-column-button:hover {

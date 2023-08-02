@@ -25,40 +25,44 @@ function App() {
 
   // prepare the links in the navbar
   const navlinks = departmentPage.map((item) => {
-    const link = "/department-" + item.departmentId;
-    return (
-      <li className="navbar-link" key={item.departmentId}>
-        <NavLink
-          className="navlink"
-          key={item.departmentId}
-          onClick={() => {
-            setPageChange(item.displayName);
-          }}
-          exact
-          to={link}
-        >
-          {item.displayName}
-        </NavLink>
-      </li>
-    );
+    if (item.departmentId != 16 && item.departmentId != 21) {
+      const link = "/department-" + item.departmentId;
+      return (
+        <li className="navbar-link" key={item.departmentId}>
+          <NavLink
+            className="navlink"
+            key={item.departmentId}
+            onClick={() => {
+              setPageChange(item.displayName);
+            }}
+            exact
+            to={link}
+          >
+            {item.displayName}
+          </NavLink>
+        </li>
+      );
+    }
   });
 
   // prepare each department page
   const pages = departmentPage.map((item) => {
-    const path = "/department-" + item.departmentId;
-    return (
-      <Route
-        path={path}
-        element={
-          <DepartmentPage
-            departmentId={item.departmentId}
-            departmentName={item.displayName}
-            departmentPage={departmentPage}
-            pageChange={pageChange}
-          />
-        }
-      ></Route>
-    );
+    if (item.departmentId != 16 && item.departmentId != 21) {
+      const path = "/department-" + item.departmentId;
+      return (
+        <Route
+          path={path}
+          element={
+            <DepartmentPage
+              departmentId={item.departmentId}
+              departmentName={item.displayName}
+              departmentPage={departmentPage}
+              pageChange={pageChange}
+            />
+          }
+        ></Route>
+      );
+    }
   });
 
   return (

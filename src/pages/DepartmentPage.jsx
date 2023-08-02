@@ -15,7 +15,7 @@ const DepartmentPage = (props) => {
         props.departmentId
     );
     const data = await res.json();
-    const objectIDArray = data.objectIDs.slice(1000, 1030);
+    const objectIDArray = await data.objectIDs.slice(400, 450);
     const validData = await getObjectInfo(objectIDArray);
     const filteredValidData = validData.filter((item) => {
       return item != null;
@@ -44,7 +44,6 @@ const DepartmentPage = (props) => {
   // this is to generate the artwork displays usingthe filtered array of objectIds
   const getArtwork = () => {
     const artworkList = page.map((item) => {
-      console.log(item);
       return <Artwork objectID={item}></Artwork>;
     });
 
