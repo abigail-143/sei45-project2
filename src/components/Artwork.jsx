@@ -98,8 +98,8 @@ const Artwork = (props) => {
         >
           <div className="inner-artwork-info">
             <p>{display.title}</p>
-            <p>{display.artistDisplayName}</p>
-            <p>{display.period}</p>
+            {display.artistDisplayName.length != 0 && <p>{display.artistDisplayName}</p>}
+            {display.period.length != 0 && <p>{display.period}</p>}
           </div>
         </div>
         {/* <p>{JSON.stringify(display)}</p> */}
