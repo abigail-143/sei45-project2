@@ -8,15 +8,32 @@ const Overlay = (props) => {
           <img className="overlay-img" src={props.img}></img>
         </div>
         <div className="detail-column">
-          <h1>Artwork: {props.title}</h1>
-          <h2>Artist Name: {props.artistDisplayName}</h2>
-          <h3>Artist Bio: {props.artistDisplayBio}</h3>
           <p>
-            {props.culture}, {props.objectDate}
+            <span>Artwork:</span> {props.title}
           </p>
-          <p>{props.classification}</p>
-          <p>{props.medium}</p>
+          <p>
+            <span>Artist Name:</span> {props.artistDisplayName}
+          </p>
+          <p>
+            <span>Artist Bio:</span> {props.artistDisplayBio}
+          </p>
+          <p>
+            <span>Culture: </span> {props.culture}
+          </p>
+          <p>
+            <span>Date: </span>
+            {props.objectDate}
+          </p>
+          <p>
+            <span>Type: </span>
+            {props.classification}
+          </p>
+          <p>
+            <span>Material: </span>
+            {props.medium}
+          </p>
           <button
+            className="detail-column-button"
             onClick={() => {
               props.setShow(false);
             }}
@@ -72,7 +89,6 @@ const Artwork = (props) => {
             alt="museum-photo"
           ></img>
           <p>{display.title}</p>
-          <p>{display.artistDisplayName}</p>
         </div>
         <div
           className="artwork-information"
@@ -80,11 +96,11 @@ const Artwork = (props) => {
             setShow(true);
           }}
         >
-          <p>{display.title}</p>
-          <p>{display.artistDisplayName}</p>
-          <p>{display.artistDisplayBio}</p>
-          <p>{display.culture}</p>
-          <p>{display.period}</p>
+          <div className="inner-artwork-info">
+            <p>{display.title}</p>
+            <p>{display.artistDisplayName}</p>
+            <p>{display.period}</p>
+          </div>
         </div>
         {/* <p>{JSON.stringify(display)}</p> */}
       </div>

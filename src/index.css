@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  background-color: whitesmoke;
+  background-color: #fafafa;
 }
 
 .centered {
@@ -26,7 +26,7 @@ body {
   top: 0;
   width: 100%;
   height: 70px;
-  background-color: grey;
+  background-color: #fafafa;
   display: flex;
   align-items: center;
   justify-content: left;
@@ -56,23 +56,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
+  padding: 10px 1%;
 }
 
 .navbar * {
   display: inline-block;
   padding: 0;
   margin: 0;
-  background-color: aqua;
   text-align: center;
 }
 
-.navbar-link {
-  margin: 7px;
+.navbar-link * {
+  text-decoration: none;
+  color: #e4002b;
+  margin: 2px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
 }
 
-.navlink {
-  text-decoration: none;
+.navbar-link *:hover {
+  background-color: #e4002b;
+  color: whitesmoke;
 }
 
 .artwork {
@@ -82,7 +86,7 @@ body {
 .artwork-display {
   width: 300px;
   height: 300px;
-  background-color: aquamarine;
+  background-color: #fafafa;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,22 +95,43 @@ body {
   z-index: 1;
 }
 
+.artwork-display > p {
+  padding: 0 10px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
 .artwork-display-img {
   width: 200px;
   height: 200px;
   object-fit: contain;
+  padding: 5px 0;
 }
 
 .artwork-information {
   width: 300px;
   height: 300px;
-  background-color: palevioletred;
+  background-color: #fafafa;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 0;
+}
+
+.inner-artwork-info {
+  max-width: 300px;
+  max-height: 300px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inner-artwork-info > p {
+  color: red;
+  text-align: justify;
 }
 
 .artwork-display:hover {
@@ -127,22 +152,43 @@ body {
 
 .overlay-details {
   position: fixed;
-  width: 60%;
+  width: 70%;
   height: 70%;
   top: 15%;
-  left: 20%;
+  left: 15%;
   z-index: 100;
-  background-color: lightslategray;
+  background-color: #e4002b;
+  color: #fafafa;
   display: flex;
 }
 
 .img-column {
   width: 50%;
+  padding-left: 2%;
 }
 
 .detail-column {
   width: 50%;
-  padding: 10px;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  position: relative;
+}
+
+.detail-column > p {
+  text-align: right;
+}
+
+.detail-column > p > span {
+  font-weight: bold;
+}
+
+.detail-column-button {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
 }
 
 .overlay-img {
@@ -152,7 +198,8 @@ body {
 }
 
 .department-art-display {
-  background-color: blanchedalmond;
+  padding: 10px 0;
+  background-color: #e4002b;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -164,7 +211,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 50px;
-  background-color: azure;
+  background-color: #fafafa;
   display: flex;
   align-items: center;
   justify-content: center;
