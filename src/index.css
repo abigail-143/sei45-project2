@@ -113,11 +113,22 @@ body {
 .write-up > h1 {
   color: #fafafa;
   padding-bottom: 25px;
+  font-weight: 900;
+  text-shadow: 2px 2px 5px #333333;
+  text-transform: uppercase;
 }
 
 .write-up > p {
   font-size: 1.3rem;
   color: #fafafa;
+}
+
+.write-up > p > a {
+  color: whitesmoke;
+}
+
+.write-up > p > a:hover {
+  text-decoration: none;
 }
 
 .write-up {

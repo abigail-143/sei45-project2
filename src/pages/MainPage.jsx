@@ -15,9 +15,14 @@ const MainPage = () => {
         </p>
         <p>
           For more information on the API, visit{" "}
-          <a href="https://metmuseum.github.io/">The Met's github</a>. For a
-          visit to the museum, plan your visit with{" "}
-          <a href="https://www.metmuseum.org/">them</a>.
+          <a target="_blank" href="https://metmuseum.github.io/">
+            The Met's github
+          </a>
+          . For a visit to the museum, plan your visit with{" "}
+          <a target="_blank" href="https://www.metmuseum.org/">
+            them
+          </a>
+          .
         </p>
       </div>
     </div>
