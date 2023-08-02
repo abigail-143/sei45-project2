@@ -35,7 +35,7 @@ const Artwork = (props) => {
   // this will toggle the overlay which will present more information
   const [show, setShow] = useState(false);
 
-//   this function will grab the objectId API and return the relevant details
+  //   this function will grab the objectId API and return the relevant details
   const getDisplayObject = async (objectID) => {
     const res = await fetch(
       import.meta.env.VITE_SERVER + "/objects/" + objectID
@@ -46,7 +46,8 @@ const Artwork = (props) => {
 
   useEffect(() => {
     getDisplayObject(props.objectID);
-  }, []);
+  }, [props.objectID]);
+  // need to track the artwork creation here base on the objectID being changed, just creating a new Artwork list is not enough to replace the artwork
 
   return (
     <>

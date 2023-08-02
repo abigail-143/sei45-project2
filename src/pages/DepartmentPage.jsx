@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import Artwork from "../components/Artwork";
 
 const DepartmentPage = (props) => {
+  // this is to track the page changing
   const [page, setPage] = useState([]);
+  // this is to track the new set of artwork to be displayed
+  const [artwork, setArtwork] = useState([]);
 
   // this will get a filtered array of objectIds that have isPublicDomain = true
   const getObjects = async () => {
@@ -33,14 +36,25 @@ const DepartmentPage = (props) => {
     return payload;
   };
 
+  // this is to make sure the array list gets updated when the page changes
   useEffect(() => {
     getObjects();
-  }, []);
+  }, [props.departmentId]);
 
   // this is to generate the artwork displays usingthe filtered array of objectIds
-  const artworkList = page.map((item) => {
-    return <Artwork objectID={item}></Artwork>;
-  });
+  const getArtwork = () => {
+    const artworkList = page.map((item) => {
+      console.log(item);
+      return <Artwork objectID={item}></Artwork>;
+    });
+
+    setArtwork(artworkList);
+  };
+
+  // this is to make sure the artwork list gets updated when the page changes
+  useEffect(() => {
+    getArtwork();
+  }, [page]);
 
   return (
     <div className="department-page">
@@ -49,7 +63,8 @@ const DepartmentPage = (props) => {
         <Artwork objectID="45734"></Artwork>
         {/* <Artwork objectID="180"></Artwork>
         <Artwork objectID="184"></Artwork> */}
-        {artworkList}
+        {artwork}
+        {/* this artworkList is not defined cause i wrapped it in a function... */}
       </div>
     </div>
   );
