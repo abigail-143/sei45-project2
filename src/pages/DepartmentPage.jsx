@@ -58,7 +58,7 @@ const DepartmentPage = (props) => {
   return (
     <div className="department-page">
       <div className="department-art-display">
-        <Artwork objectID="45734"></Artwork>
+        {/* <Artwork objectID="45734"></Artwork> */}
         {artwork}
       </div>
     </div>
