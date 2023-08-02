@@ -28,7 +28,7 @@ function App() {
     const link = "/department-" + item.departmentId;
     return (
       <li className="navbar-link" key={item.departmentId}>
-        <NavLink className="navlink" key={item.departmentId} onClick={() => {setPageChange(item.departmentId)}} exact to={link}>
+        <NavLink className="navlink" key={item.departmentId} onClick={() => {setPageChange(item.displayName)}} exact to={link}>
           {item.displayName}
         </NavLink>
       </li>
@@ -91,7 +91,7 @@ function App() {
 
   return (
     <div>
-      <Header></Header>
+      <Header pageChange={pageChange}></Header>
       <Navbar links={navlinks}></Navbar>
 
       <Routes>
