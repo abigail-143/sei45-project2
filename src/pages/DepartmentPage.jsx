@@ -58,13 +58,9 @@ const DepartmentPage = (props) => {
 
   return (
     <div className="department-page">
-      {/* <h1>{props.departmentName}</h1> */}
       <div className="department-art-display">
         <Artwork objectID="45734"></Artwork>
-        {/* <Artwork objectID="180"></Artwork>
-        <Artwork objectID="184"></Artwork> */}
         {artwork}
-        {/* this artworkList is not defined cause i wrapped it in a function... */}
       </div>
     </div>
   );
