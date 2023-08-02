@@ -58,7 +58,7 @@ const DepartmentPage = (props) => {
 
   return (
     <div className="department-page">
-      <h1>{props.departmentName}</h1>
+      {/* <h1>{props.departmentName}</h1> */}
       <div className="department-art-display">
         <Artwork objectID="45734"></Artwork>
         {/* <Artwork objectID="180"></Artwork>

@@ -71,7 +71,6 @@ const Artwork = (props) => {
             src={display.primaryImageSmall}
             alt="museum-photo"
           ></img>
-          <p>{display.objectID}</p>
           <p>{display.title}</p>
           <p>{display.artistDisplayName}</p>
         </div>

@@ -2,72 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import Artwork from "../components/Artwork";
 
 const MainPage = () => {
-  // this works to get the array of TOTAL unique objectIds from a specific department
-  const [testpage, setTestPage] = useState([]);
-  const validArrayRef = useRef([]);
-
-  const getObjects = async () => {
-    const res = await fetch(
-      import.meta.env.VITE_SERVER + "/objects?departmentIds=21"
-    );
-    const data = await res.json();
-    const array = data.objectIDs.slice(3000, 3200);
-    console.log(`array: ${array}`);
-    console.log(array);
-
-    // const validArray = [];
-    //   array.forEach(async (array) => {
-    //     const res = await fetch(
-    //       import.meta.env.VITE_SERVER + "/objects/" + item
-    //     );
-    //     const data = await res.json();
-    //     if (data.isPublicDomain) {
-    //       // validArray.push(data.objectID);
-    //       validArrayRef.current.push(data.objectID);
-    //     }
-    //   })
-
-    const validArray = await getUrls(array);
-    const filtered = validArray.filter((item) => {
-      return item != null;
-    });
-
-    setTestPage(filtered);
-    console.log(`testpage: ${testpage}`);
-    // console.log(testpage);
-  };
-
-  const getUrls = async (array) => {
-    // const newReturnValue = [];
-    const returnValue = array.map(async (item) => {
-      const res = await fetch(import.meta.env.VITE_SERVER + "/objects/" + item);
-      const data = await res.json();
-      if (data.isPublicDomain) {
-        // validArray.push(data.objectID);
-        return data.objectID;
-      }
-    });
-    // returnValue.filter((element) => {
-    //   return element != null;
-    // });
-
-    // const payload = await Promise.all(returnValue);
-    // console.log(payload);
-
-    const payload = await Promise.all(returnValue);
-    console.log(payload);
-
-    return payload;
-  };
-
-  useEffect(() => {
-    getObjects();
-  }, []);
-
-  const artworkList = testpage.map((item) => {
-    return <Artwork objectID={item}></Artwork>
-  })
-
   //------------------------------------------//
 
   // const [testData, setTestData] = useState([])
@@ -131,15 +65,8 @@ const MainPage = () => {
   //   }
 
   return (
-    <div className="department-page">
+    <div className="department-page text-center">
       <h1>Main Page</h1>
-      {/* <div className="department-art-display">
-        <Artwork></Artwork>
-      </div> */}
-      <div>{JSON.stringify(testpage)}</div>
-      {/* <div>{JSON.stringify(testObjectData)}</div> */}
-      {/* {testData} */}
-      <div>{artworkList}</div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const Navbar = (props) => {
     <div className="navbar-div">
       {/* <h1>Navbar</h1> */}
       <nav className="navbar">
-        <ul>
+        <ul className="navbar-ul">
           <li className="navbar-link">
             <NavLink className="navlink" exact="true" to="/main">
               Main Page
