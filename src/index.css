@@ -97,8 +97,32 @@ body {
 }
 
 .main-page {
-  flex: 1;
-  background-color: beige;
+  background-image: url("https://media.cntraveler.com/photos/5a84572586e4b63c297d47fd/16:9/w_1920,c_limit/The-Met_2018_GettyImages-541359628.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  object-fit: cover;
+  height: 75vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.write-up > h1 {
+  color: #fafafa;
+  padding-bottom: 25px;
+}
+
+.write-up > p {
+  font-size: 1.3rem;
+  color: #fafafa;
+}
+
+.write-up {
+  background-color: rgba(228, 0, 43, 0.75);
+  padding: 30px;
 }
 
 .department-page {
