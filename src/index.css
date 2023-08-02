@@ -40,13 +40,15 @@ body {
 }
 
 .header-dept-name {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   position: absolute;
   right: 3%;
+  color: #e4002b;
+  font-weight: 900;
 }
 
 .logo {
-  height: 60px;
+  height: 55px;
   /* position: absolute;
   left: 20px; */
   padding-right: 20px;
@@ -192,13 +194,25 @@ body {
 }
 
 .detail-column > p > span {
-  font-weight: bold;
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 900;
 }
 
 .detail-column-button {
+  border: 1px solid #fafafa;
+  border-radius: 5px;
+  color: #fafafa;
+  background-color: #e4002b;
+  width: 75px;
   position: absolute;
-  bottom: 15px;
+  top: 15px;
   right: 15px;
+}
+
+.detail-column-button:hover {
+  background-color: #fafafa;
+  color: #e4002b;
 }
 
 .overlay-img {
@@ -217,7 +231,7 @@ body {
 }
 
 .footer {
-  position: sticky; /* (absolute) this will let it stick to the bottom of the webscreen at all times */
+  position: relative; /* (relative) this will let it stick to the bottom of the webscreen at all times */
   bottom: 0;
   width: 100%;
   height: 50px;

@@ -38,7 +38,7 @@ const Overlay = (props) => {
               props.setShow(false);
             }}
           >
-            back
+            close
           </button>
         </div>
       </div>
