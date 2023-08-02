@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 
 const MainPage = () => {
   return (
-    <div className="department-page text-center">
-      <h1>Main Page</h1>
+    <div className="main-page text-center">
+      <h1>Visit The Met</h1>
+
     </div>
   );
 };

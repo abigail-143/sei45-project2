@@ -62,7 +62,7 @@ function App() {
   });
 
   return (
-    <div>
+    <div className="app">
       <Header pageChange={pageChange}></Header>
       <Navbar links={navlinks} setPageChange={setPageChange}></Navbar>
       <Routes>

@@ -22,6 +22,13 @@ body {
   align-items: center;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -59,6 +66,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: fit-content;
 }
 
 .navbar {
@@ -86,6 +94,16 @@ body {
 .navbar-link *:hover {
   background-color: #e4002b;
   color: whitesmoke;
+}
+
+.main-page {
+  flex: 1;
+  background-color: beige;
+}
+
+.department-page {
+  height: fit-content;
+  flex: 1;
 }
 
 .artwork {
