@@ -71,14 +71,42 @@ const Artwork = (props) => {
       {show && (
         <Overlay
           setShow={setShow}
-          title={display.title}
-          artistDisplayName={display.artistDisplayName}
-          artistDisplayBio={display.artistDisplayBio}
-          culture={display.culture}
+          title={
+            display.title.length != 0
+              ? display.title
+              : "No available information."
+          }
+          artistDisplayName={
+            display.artistDisplayName.length != 0
+              ? display.artistDisplayName
+              : "No available information."
+          }
+          artistDisplayBio={
+            display.artistDisplayBio.length != 0
+              ? display.artistDisplayBio
+              : "No available information."
+          }
+          culture={
+            display.culture.length != 0
+              ? display.culture
+              : "No available information."
+          }
           img={display.primaryImage}
-          objectDate={display.objectDate}
-          classification={display.classification}
-          medium={display.medium}
+          objectDate={
+            display.objectDate.length != 0
+              ? display.objectDate
+              : "No available information."
+          }
+          classification={
+            display.classification.length != 0
+              ? display.classficiation
+              : "No available information."
+          }
+          medium={
+            display.medium.length != 0
+              ? display.medium
+              : "No available information."
+          }
         ></Overlay>
       )}
       <div className="artwork">
@@ -88,7 +116,7 @@ const Artwork = (props) => {
             src={display.primaryImageSmall}
             alt="museum-photo"
           ></img>
-          <p>{display.title}</p>
+          <p>{display.title.length >= 70 ? display.title.substring(0, 70) : display.title}</p>
         </div>
         <div
           className="artwork-information"
