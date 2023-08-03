@@ -5,7 +5,7 @@
 The Metropolitan Museum of Art has over 5,000 years of art from around the world for visitors to experience and enjoy. This is a digital gallery of a subset of the works from The Met for users from all across the globe to enjoy the pieces online.
 
 
-Take a peak of the site [here](https://met-digital-gallery-project2.netlify.app/).
+Take a peak at the site [here](https://met-digital-gallery-project2.netlify.app/).
 
 
 ## The App
