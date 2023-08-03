@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Route, Routes, NavLink } from "react-router-dom";
 // the react-route-dom is in the DevDependecies (package.json) do i need to move it up to dependencies?
 
 import Navbar from "./components/Navbar";
-import MainPage from "./pages/MainPage";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import DepartmentPage from "./pages/DepartmentPage";
+const MainPage = React.lazy(() => import("./pages/MainPage"));
+const DepartmentPage = React.lazy(() => import("./pages/DepartmentPage"));
 
 function App() {
   const [departmentPage, setDepartmentPage] = useState([]);
@@ -69,11 +70,13 @@ function App() {
     <div className="app">
       <Header pageChange={pageChange}></Header>
       <Navbar links={navlinks} setPageChange={setPageChange}></Navbar>
-      <Routes>
-        <Route path="/" element={<MainPage />}></Route>
-        <Route path="/main" element={<MainPage />}></Route>
-        {pages}
-      </Routes>
+      <Suspense fallback={<p>loading</p>}>
+        <Routes>
+          <Route path="/" element={<MainPage />}></Route>
+          <Route path="/main" element={<MainPage />}></Route>
+          {pages}
+        </Routes>
+      </Suspense>
       <Footer></Footer>
     </div>
   );
