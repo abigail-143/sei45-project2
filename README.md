@@ -44,6 +44,7 @@ Upon clicking on the information, a pop up will appear which will display a larg
 - Javascript
 - Bootstrap framework
 - React
+- Netlify
 
 ## Next Steps
 
