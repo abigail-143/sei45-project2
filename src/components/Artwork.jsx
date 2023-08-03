@@ -116,7 +116,7 @@ const Artwork = (props) => {
             src={display.primaryImageSmall}
             alt="museum-photo"
           ></img>
-          <p>{display.title.length >= 70 ? display.title.substring(0, 70) : display.title}</p>
+          <p>{display.title}</p>
         </div>
         <div
           className="artwork-information"
