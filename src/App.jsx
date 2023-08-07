@@ -3,7 +3,6 @@ import { Route, Routes, NavLink } from "react-router-dom";
 // the react-route-dom is in the DevDependecies (package.json) do i need to move it up to dependencies?
 
 import Navbar from "./components/Navbar";
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 const MainPage = React.lazy(() => import("./pages/MainPage"));
